@@ -74,3 +74,6 @@ The console will display:
 ### (Optional) Clean up build files:
 
      make clean
+
+### Note 
+SDL2 must be installed on your system before building.
