@@ -94,6 +94,7 @@ void LifeGrid::draw(SDL_Renderer* renderer)
 	{
 		for(int col = 0; col < width; col++)
 		{
+			//Render alive cells by converting grid coordinates to pixel positions (each cell is 10x10 pixels)
 			if(grid[row][col] == 1)
 			{
 				SDL_Rect rect;
@@ -124,7 +125,6 @@ void LifeGrid::clear_grid()
 
 void LifeGrid::set_cell(int row,int col,int state)
 {
-	if(row >=0 && row < height && col >=0 && col < width)
+	if(row >= 0 && row < height && col >= 0 && col < width)
 		grid[row][col] = state;
 }
-
