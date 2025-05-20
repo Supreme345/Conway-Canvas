@@ -64,16 +64,10 @@ The console will display:
 - Number of alive cells in the final state
 
 ---
-### Build the project:
-      make
+## Build & Run
+Make sure SDL2 is installed.
 
-### Run the executable:
 
-     ./LifeGrid   #On Windows: ./LifeGrid.exe
-
-### (Optional) Clean up build files:
-
-     make clean
-
-### Note 
-SDL2 must be installed on your system before building.
+      make       # Builds the project
+      ./LifeGrid # Runs the simulation (on windows - ./LifeGrid.exe)
+      make clean # Clean build files
