@@ -6,7 +6,7 @@
 #include<SDL2/SDL.h>
 #include "life_grid.h"
 #define WIDTH 100
-#define HEIGHT 150
+#define HEIGHT  150
 #define CELL_SIZE 10
 using namespace std;
 
@@ -46,7 +46,7 @@ int main()
 	bool paused = false,next_gen = false,isDrawMode = false;
 
 	cout << "========================================================" << endl;
-	cout << "	Welcome to Conway's Game of Life" << endl;
+	cout << "	Welcome to Conway Canvas" << endl;
 	cout << "========================================================" << endl;
 
 	do
@@ -101,7 +101,7 @@ int main()
 			if(event.type == SDL_QUIT)
 			{
 				cout << "\n========================================================" << endl;
-				cout << "    Thank you for playing Conway's Game of Life!" << endl;
+				cout << "    Thank you for playing Conway Canvas!" << endl;
 				cout << "    Total Generations: " << generation << endl;
                         	cout << "    Alive Cells: " << grid.count_alive_cells()<<endl;
 				cout << "=========================================================" << endl;
@@ -109,25 +109,25 @@ int main()
 				gameStatus = false;
 			}
 
-			else if(event.type == SDL_KEYDOWN)// a key is pressed
+			else if(event.type == SDL_KEYDOWN)// Handle keyboard input for game controls
 			{
 				switch(event.key.keysym.sym)
 				{
-					case SDLK_p:// 'p' is pressed
+					case SDLK_p:// Pause game and enableand enable draw mode
 					{
 						paused = true;
 						cout << "\nPaused - Draw Mode ON (left click = alive , right click = dead)" << endl;
 						break;
 					}
 
-					case SDLK_r:// 'r' is pressed
+					case SDLK_r:// Resume simulation
 					{
 						paused = false;
 						cout << "\nResumed" << endl;
 						break;
 					}
 
-					case SDLK_n://'n' is pressed
+					case SDLK_n://Advance one generation if paused
 					{
 						if(paused)
 						{
@@ -142,7 +142,7 @@ int main()
 						break;
 					}
 
-					case SDLK_c://'c' is pressed
+					case SDLK_c://Clear grid and reset for drawing
 					{
 						paused = true;
 						grid.clear_grid();
@@ -156,22 +156,22 @@ int main()
 			}
 			else if(event.type == SDL_MOUSEBUTTONDOWN && paused)
 			{
-				int x_pos = event.button.x / CELL_SIZE;
-				int y_pos = event.button.y / CELL_SIZE;
+				int x_pos = event.button.x / CELL_SIZE;//convert pixel x to grid column
+				int y_pos = event.button.y / CELL_SIZE;//convert pixel y to grid row
 
-				switch(event.button.button)
+				switch(event.button.button)//Handle mouse button clicks to set cell state
 				{
-					case SDL_BUTTON_LEFT:
+					case SDL_BUTTON_LEFT://Left-click to set cell as alive
 					{
 						grid.set_cell(y_pos,x_pos,1);
-						cout << "Alive cell is placed at (" << x_pos << " , " << y_pos << " ) " << endl;
+						cout << "Alive cell placed at grid position (row - "<< y_pos << " , col - " << x_pos << " )." << endl;
 						break;
 					}
 
-					case SDL_BUTTON_RIGHT:
+					case SDL_BUTTON_RIGHT://Right-click to set cell as dead
 					{
 						grid.set_cell(y_pos,x_pos,0);
-						cout << "Dead cell placed at (" << x_pos << " , " << y_pos << " ) " << endl;
+						cout << "Dead cell placed at grid position (row - " << y_pos << " , col - " << x_pos << " )." << endl;
 						break;
 					}
 				}
