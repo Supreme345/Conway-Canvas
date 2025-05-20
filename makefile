@@ -1,6 +1,6 @@
 CC = g++
 
-CFLAGS = -c `sdl2-config --cflags`
+CFLAGS =  `sdl2-config --cflags`
 LDFLAGS = `sdl2-config --libs`
 
 all : 		life_grid 
