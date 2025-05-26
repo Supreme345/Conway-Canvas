@@ -9,6 +9,6 @@ This project brings the grid to life with drawing capabilities, pause/resume fea
 
 Conway's Game of Life is a zero-player game devised by mathematician John Conway.  
 It consists of a grid of cells, each of which can be either alive (1) or dead (0).  
-Each cell has eight neighbors, and the state of each cell in the next generation is determined by the following rules:
+
 
 recreated by consulting SriPooja-S
